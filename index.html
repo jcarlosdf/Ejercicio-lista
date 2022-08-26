@@ -15,12 +15,6 @@
     <div class="container">
         <h1>Hospital Sálvame</h1>
 
-        <div class="triage">
-            <div class="button button-clear position">Abrir</div>
-            <div class="triage_categories">
-                <img src="./img/Triagemexico.jpg" alt="clasificacion_triage">
-            </div>
-        </div>
 
         <div class="row">
             <div class="column">
@@ -30,6 +24,14 @@
                 <input type="button" onclick="mostrarPacientesFn()" value="Mostrar colas">
             </div>
             <div class="column"></div>
+            <div class="column">
+                <div class="triage">
+                    <div class="button button-clear position">ver triages</div>
+                    <div class="triage_categories">
+                        <img src="./img/Triagemexico.jpg" alt="clasificacion_triage">
+                    </div>
+                </div>
+            </div>
         </div>
         <br>
         <h3>Cola pacientes</h3>
@@ -110,7 +112,7 @@
                 </table>
             </div>
         </div>
-        </div>
+    </div>
     </div>
 
     <script type="text/javascript">
@@ -124,11 +126,30 @@
             mostrarColaAtencionInmediata()
             mostrarColaAtencionNoUrgente()
         }
-        const btnVer = document.querySelector(".container .triage .button")
-        btnVer.addEventListener("click",()=>{
+        const btnVer = document.querySelector(".container .triage .button");
+        const container = document.querySelector(".container")
+        
+        btnVer.addEventListener("click", () => {
             btnVer.classList.toggle("verImg")
             btnVer.nextElementSibling.classList.toggle("show")
         })
+
+        // unas cuantas lineas de codigo mas para que el diseño sea un poquito mas adaptible a dispositivos moviles
+        // lo siguiente hace que al abrir la imagen se pueda cerrar dando clic fuera de la misma
+        container.addEventListener("click", (e)=>{
+            clicEveryWhere(e.target)
+        })
+        function clicEveryWhere(target){
+            let img = btnVer.nextElementSibling.classList.contains("show")
+            if( img ){
+                let clon = target.innerText
+                if(!clon == "" && clon != "VER TRIAGES"){
+                    btnVer.classList.toggle("verImg")
+                    btnVer.nextElementSibling.classList.toggle("show")
+                }
+                // console.log(clon)
+            }
+        }
     </script>
 </body>
 

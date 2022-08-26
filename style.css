@@ -1,9 +1,6 @@
 
 .container .triage .position {
     font-size: 1.5rem;
-    position: absolute;
-    top: 75px;
-    right: 150px;
     transition: all 0.3s;
 }
 

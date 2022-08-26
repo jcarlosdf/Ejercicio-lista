@@ -71,8 +71,8 @@ function atenderPaciente() {
 
 function mostrarColaTotalPacientes() {
   dibujarTabla("tablaTotalPacientes", pacientes);
-  pacients = document.querySelectorAll('.icono-action ');
-  console.log(pacients)
+  // pacients = document.querySelectorAll('.icono-action ');
+  // console.log(pacients)
 }
 
 function mostrarColaOperacion() {
