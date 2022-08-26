@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Clase 11</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='miligram/dist/milligram.min.css'>
+    <script src='index.js' defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hospital Sálvame</h1>
+
+        <div class="row">
+            <div class="column">
+                <input type="button" onclick="atenderPaciente()" value="Atender paciente">
+            </div>
+            <div class="column">
+                <input type="button" onclick="mostrarPacientesFn()" value="Mostrar colas">
+            </div>
+            <div class="column"></div>
+        </div>
+        <br>
+        <h3>Cola pacientes</h3>
+        <span id="tablaTotalPacientesTxt"></span>
+        <div class="row">
+            <div class="column">
+                <table id="tablaTotalPacientes">
+                    <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Triage</th>     
+                        </tr>
+                      </thead>
+                  </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3>Cola Operación</h3>
+        <span id="tablaColaOperacionTxt"></span>
+        <div class="row">
+            <div class="column">
+                <table id="tablaColaOperacion">
+                    <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Triage</th>     
+                        </tr>
+                      </thead>
+                  </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3>Cola Atención inmediata</h3>
+        <span id="tablaColaAtencionInmediataTxt"></span>
+        <div class="row">
+            <div class="column">
+                <table id="tablaColaAtencionInmediata">
+                    <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Triage</th>     
+                        </tr>
+                      </thead>
+                  </table>
+            </div>
+        </div>
+        <br>
+        <br>
+        <h3>Cola Atención No Urgente</h3>
+        <span id="tablaColaAtencionNoUrgenteTxt"></span>
+        <div class="row">
+            <div class="column">
+                <table id="tablaColaAtencionNoUrgente">
+                    <thead>
+                        <tr>
+                          <th>Nombre</th>
+                          <th>Triage</th>     
+                        </tr>
+                      </thead>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function atender() {
+           
+        }
+
+        function  mostrarPacientesFn(){
+            mostrarColaTotalPacientes()
+            mostrarColaOperacion()
+            mostrarColaAtencionInmediata()
+            mostrarColaAtencionNoUrgente()
+        }
+    </script>
+</body>
+
+</html>
