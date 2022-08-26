@@ -2,7 +2,7 @@
 .container .triage .position {
     font-size: 1.5rem;
     position: absolute;
-    top: 30px;
+    top: 75px;
     right: 150px;
     transition: all 0.3s;
 }
@@ -19,13 +19,13 @@
     background-color: antiquewhite;
     position: absolute;
     right: 12px;
+    top: 120px;
     overflow: hidden;
     visibility: hidden;
-    /* transition: all 0.3s; */
 }
 .container .triage .show {
     visibility: visible;
-    /* transition: all 0.3s; */
+    transition: all 0.3s ease-out;
 }
 
 .container .triage .triage_categories:active {
