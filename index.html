@@ -7,12 +7,20 @@
     <title>Clase 11</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='miligram/dist/milligram.min.css'>
+    <link rel="stylesheet" href="style.css">
     <script src='index.js' defer></script>
 </head>
 
 <body>
     <div class="container">
         <h1>Hospital Sálvame</h1>
+
+        <div class="triage">
+            <div class="button button-clear position">Abrir</div>
+            <div class="triage_categories">
+                <img src="./img/Triagemexico.jpg" alt="clasificacion_triage">
+            </div>
+        </div>
 
         <div class="row">
             <div class="column">
@@ -31,11 +39,11 @@
                 <table id="tablaTotalPacientes">
                     <thead>
                         <tr>
-                          <th>Nombre</th>
-                          <th>Triage</th>     
+                            <th>Nombre</th>
+                            <th>Triage</th>
                         </tr>
-                      </thead>
-                  </table>
+                    </thead>
+                </table>
             </div>
         </div>
         <br>
@@ -47,11 +55,11 @@
                 <table id="tablaColaOperacion">
                     <thead>
                         <tr>
-                          <th>Nombre</th>
-                          <th>Triage</th>     
+                            <th>Nombre</th>
+                            <th>Triage</th>
                         </tr>
-                      </thead>
-                  </table>
+                    </thead>
+                </table>
             </div>
         </div>
         <br>
@@ -63,11 +71,11 @@
                 <table id="tablaColaAtencionInmediata">
                     <thead>
                         <tr>
-                          <th>Nombre</th>
-                          <th>Triage</th>     
+                            <th>Nombre</th>
+                            <th>Triage</th>
                         </tr>
-                      </thead>
-                  </table>
+                    </thead>
+                </table>
             </div>
         </div>
         <br>
@@ -79,26 +87,48 @@
                 <table id="tablaColaAtencionNoUrgente">
                     <thead>
                         <tr>
-                          <th>Nombre</th>
-                          <th>Triage</th>     
+                            <th>Nombre</th>
+                            <th>Triage</th>
                         </tr>
-                      </thead>
-                  </table>
+                    </thead>
+                </table>
             </div>
+        </div>
+        <br>
+        <br>
+        <h3>Morgue</h3>
+        <span id="tablaMorgueTxt"></span>
+        <div class="row">
+            <div class="column">
+                <table id="tablaMorgue">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Triage</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
         </div>
     </div>
 
     <script type="text/javascript">
         function atender() {
-           
+
         }
 
-        function  mostrarPacientesFn(){
+        function mostrarPacientesFn() {
             mostrarColaTotalPacientes()
             mostrarColaOperacion()
             mostrarColaAtencionInmediata()
             mostrarColaAtencionNoUrgente()
         }
+        const btnVer = document.querySelector(".container .triage .button")
+        btnVer.addEventListener("click",()=>{
+            btnVer.classList.toggle("verImg")
+            btnVer.nextElementSibling.classList.toggle("show")
+        })
     </script>
 </body>
 

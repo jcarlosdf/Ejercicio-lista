@@ -40,16 +40,27 @@ pacientes = [
 colaOperacion = [];
 colaAtencionInmediata = [];
 colaAtencionNoUrgente = [];
+perdidas = [];
 
 function atenderPaciente() {
   pacientes.filter(paciente=>{
-    if(paciente.triage==1){
+    if(paciente.triage==1 || paciente.triage==2){
       colaOperacion.push(paciente)
-    }else if(paciente.triage===2){
+    }else if(paciente.triage==3 || paciente.triage==4){
       colaAtencionInmediata.push(paciente)
     }else{
       colaAtencionNoUrgente.push(paciente)
     }
+  })
+  colaOperacion.sort((a,b)=>{
+    if(a.triage > b.triage) return 1
+    if(a.triage < b.triage) return -1
+    if(a.triage == b.triage) return 0
+  })
+  colaAtencionInmediata.sort((a,b)=>{
+    if(a.triage > b.triage) return 1
+    if(a.triage < b.triage) return -1
+    if(a.triage == b.triage) return 0
   })
   pacientes.length = 0;
   mostrarColaTotalPacientes()
@@ -60,6 +71,8 @@ function atenderPaciente() {
 
 function mostrarColaTotalPacientes() {
   dibujarTabla("tablaTotalPacientes", pacientes);
+  pacients = document.querySelectorAll('.icono-action ');
+  console.log(pacients)
 }
 
 function mostrarColaOperacion() {
@@ -84,14 +97,22 @@ function dibujarTabla(idElemento, arreglo) {
   for (var i = 0; i < arreglo.length; i++) {
     txtNombre = document.createTextNode(arreglo[i].nombre);
     txtTriage = document.createTextNode(arreglo[i].triage);
+
     tdNombre = document.createElement("td");
     tdTriage = document.createElement("td");
+    tdAction = document.createElement("td");
+    imgAction = document.createElement("img");
+    imgAction.src="./img/icono-cruz-cristiana.png";
+    imgAction.className = "icono-action"
+    imgAction.setAttribute("alt","cruz");
     tr = document.createElement("tr");
 
     tdNombre.appendChild(txtNombre);
     tdTriage.appendChild(txtTriage);
+    tdAction.appendChild(imgAction);
     tr.appendChild(tdNombre);
     tr.appendChild(tdTriage);
+    tr.appendChild(tdAction);
     table.appendChild(tr);
   }
 
